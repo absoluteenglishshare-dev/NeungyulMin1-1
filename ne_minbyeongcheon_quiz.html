@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ABSOLUTE 영어 | 공통영어1 NE능률(민병천)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var s=document.createElement('script');
+  s.src='https://code.responsivevoice.org/responsivevoice.js?key=FREE';
+  s.onerror=function(){window._rvFailed=true;};
+  document.head.appendChild(s);
+})();
+function speakEnglish(text){
+  if(typeof responsiveVoice!=='undefined'&&responsiveVoice.voiceSupport()){
+    responsiveVoice.speak(text,'UK English Female',{rate:.9});
+  }else if(window.speechSynthesis){
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='en-GB';u.rate=0.85;
+    speechSynthesis.cancel();speechSynthesis.speak(u);
+  }
+}
+</script>
+<style>
+:root{
+  --bg:#0c0c0f;--card:#1a1a24;--border:#2a2a3d;
+  --accent:#6366f1;--accent2:#8b5cf6;--gold:#f59e0b;
+  --green:#10b981;--red:#ef4444;--text:#f0f0f8;--muted:#6b7280;
+  --tag:#1e1e35;--syn:#22d3ee;--ant:#fb7185;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;}
+.header{background:linear-gradient(135deg,#0a0a14,#16082a);border-bottom:1px solid var(--border);padding:12px 16px 10px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:3px;background:linear-gradient(90deg,#818cf8,#c084fc,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.brand-sub{font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:1px;}
+.school-tag{background:var(--tag);border:1px solid #3a3a5a;border-radius:8px;padding:4px 10px;font-size:10px;color:#a5b4fc;font-family:'Space Mono',monospace;}
+.screen{display:none;padding:20px 16px;max-width:600px;margin:0 auto;}
+.screen.active{display:block;animation:fadeUp .3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.home-hero{text-align:center;padding:24px 0 16px;}
+.home-title{font-size:22px;font-weight:900;line-height:1.3;margin-bottom:6px;}
+.home-title em{color:#818cf8;font-style:normal;}
+.home-desc{color:var(--muted);font-size:11px;line-height:1.7;}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;}
+.stat-num{font-family:'Space Mono',monospace;font-size:20px;color:#818cf8;font-weight:700;}
+.stat-label{font-size:9px;color:var(--muted);margin-top:2px;}
+.section-title{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin:18px 0 8px;text-transform:uppercase;}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}
+.lesson-btn{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;transition:all .2s;text-align:left;}
+.lesson-btn.selected{border-color:var(--accent);background:rgba(99,102,241,.12);}
+.lesson-btn:active{transform:scale(.97);}
+.lesson-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent);letter-spacing:1px;}
+.lesson-name{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.4;}
+.lesson-count{font-size:10px;color:#818cf8;margin-top:4px;font-family:'Space Mono',monospace;}
+.type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.type-btn{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 8px;cursor:pointer;transition:all .2s;text-align:center;}
+.type-btn.selected{border-color:var(--gold);background:rgba(245,158,11,.1);}
+.type-icon{font-size:20px;margin-bottom:4px;}
+.type-label{font-size:11px;font-weight:700;}
+.type-desc{font-size:9px;color:var(--muted);margin-top:2px;line-height:1.4;}
+.count-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.count-btn{flex:1;min-width:60px;background:var(--card);border:2px solid var(--border);border-radius:10px;padding:10px 4px;cursor:pointer;font-family:'Space Mono',monospace;font-size:13px;color:var(--text);text-align:center;transition:all .2s;}
+.count-btn.selected{border-color:var(--syn);background:rgba(34,211,238,.1);color:var(--syn);}
+.start-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:14px;padding:16px;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;cursor:pointer;transition:all .2s;}
+.start-btn:active{transform:scale(.98);opacity:.9;}
+.back-btn{background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:5px;margin-bottom:8px;font-family:'Noto Sans KR',sans-serif;}
+.back-btn svg{width:14px;height:14px;flex-shrink:0;}
+.quiz-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.q-progress-wrap{flex:1;background:var(--border);border-radius:99px;height:6px;overflow:hidden;}
+.q-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .4s ease;}
+.q-counter{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
+.q-score{font-family:'Space Mono',monospace;font-size:11px;color:var(--gold);white-space:nowrap;}
+.q-type-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:10px;}
+.badge-A{background:rgba(99,102,241,.2);color:#818cf8;border:1px solid rgba(99,102,241,.4);}
+.badge-B{background:rgba(139,92,246,.2);color:#c084fc;border:1px solid rgba(139,92,246,.4);}
+.badge-C{background:rgba(245,158,11,.2);color:#f59e0b;border:1px solid rgba(245,158,11,.4);}
+.q-lesson-info{font-size:10px;color:var(--muted);margin-bottom:6px;}
+.q-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 16px 18px;margin-bottom:14px;position:relative;}
+.q-word{font-family:'Space Mono',monospace;font-size:26px;color:var(--text);font-weight:700;line-height:1.2;word-break:break-all;}
+.q-hint{font-size:12px;color:var(--syn);margin-top:8px;font-weight:600;}
+.tts-btn{position:absolute;top:14px;right:14px;background:rgba(129,140,248,.15);border:1px solid rgba(129,140,248,.3);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;transition:all .2s;}
+.tts-btn:active{transform:scale(.9);}
+.choices{display:grid;gap:10px;}
+.choice-btn{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--text);font-size:13px;font-family:'Noto Sans KR',sans-serif;text-align:left;cursor:pointer;transition:all .18s;line-height:1.5;word-break:break-all;}
+.choice-btn:active{transform:scale(.98);}
+.choice-btn.correct{border-color:var(--green);background:rgba(16,185,129,.12);color:#34d399;}
+.choice-btn.wrong{border-color:var(--red);background:rgba(239,68,68,.1);color:#f87171;}
+.choice-btn.disabled{cursor:default;opacity:.6;}
+.choice-btn.reveal{border-color:var(--green);background:rgba(16,185,129,.08);}
+.feedback-box{border-radius:14px;padding:14px 16px;margin-bottom:14px;border:1px solid;animation:fadeUp .25s ease;}
+.feedback-box.correct{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.3);}
+.feedback-box.wrong{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.25);}
+.fb-status{font-size:13px;font-weight:700;margin-bottom:8px;}
+.fb-status.ok{color:var(--green);}
+.fb-status.no{color:var(--red);}
+.fb-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start;flex-wrap:wrap;}
+.fb-label{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
+.fb-label.kr{background:rgba(129,140,248,.2);color:#a5b4fc;}
+.fb-label.en{background:rgba(139,92,246,.2);color:#c084fc;}
+.fb-label.syn{background:rgba(34,211,238,.15);color:var(--syn);}
+.fb-label.ant{background:rgba(251,113,133,.15);color:var(--ant);}
+.fb-val{font-size:12px;color:var(--text);line-height:1.6;}
+.next-btn{width:100%;background:linear-gradient(135deg,#1e1e35,#2a1f45);border:1px solid var(--accent);border-radius:12px;padding:14px;color:#a5b4fc;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;transition:all .2s;margin-bottom:8px;}
+.next-btn:active{transform:scale(.98);}
+.result-hero{text-align:center;padding:30px 0 20px;}
+.result-score{font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--gold);line-height:1;}
+.result-total{font-size:13px;color:var(--muted);margin-top:4px;}
+.result-comment{font-size:16px;font-weight:700;margin-top:14px;}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 20px;}
+.result-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
+.result-stat .num{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;}
+.result-stat .lbl{font-size:10px;color:var(--muted);margin-top:3px;}
+.result-stat.c .num{color:var(--green);}
+.result-stat.w .num{color:var(--red);}
+.result-stat.p .num{color:var(--gold);}
+.action-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.action-btn{border-radius:12px;padding:14px;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1.5px;text-align:center;transition:all .2s;border:none;}
+.action-btn.retry{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
+.action-btn.home{background:var(--card);border:1px solid var(--border);color:var(--text);}
+.action-btn:active{transform:scale(.97);}
+.wrong-list{margin-top:16px;}
+.wrong-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:8px;}
+.wi-word{font-family:'Space Mono',monospace;font-size:14px;color:#c084fc;font-weight:700;}
+.wi-mean{font-size:12px;color:var(--muted);margin-top:2px;}
+</style>
+</head>
+<body>
+<header class="header">
+  <div>
+    <div class="brand">ABSOLUTE 영어</div>
+    <div class="brand-sub">단어 퀴즈 시스템</div>
+  </div>
+  <div class="school-tag">공통영어1 · NE능률(민병천)</div>
+</header>
+
+<div id="screen-home" class="screen active">
+  <div class="home-hero">
+    <div class="home-title">NE능률 <em>(민병천)</em><br>공통영어1 단어퀴즈</div>
+    <div class="home-desc">2022 개정 | Lesson 1~4 | 유의어·반의어 포함</div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-num" id="total-count">0</div><div class="stat-label">총 단어</div></div>
+    <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Lesson</div></div>
+    <div class="stat-card"><div class="stat-num">A/B/C</div><div class="stat-label">퀴즈 타입</div></div>
+  </div>
+  <div class="section-title">📚 Lesson 선택 (복수 가능)</div>
+  <div class="lesson-grid" id="lesson-grid"></div>
+  <div class="section-title">🎯 퀴즈 타입</div>
+  <div class="type-grid">
+    <div class="type-btn selected" data-type="A" onclick="toggleType(this,'A')">
+      <div class="type-icon">🔤</div><div class="type-label">TYPE A</div>
+      <div class="type-desc">뜻 → 단어<br>한글 보고 영단어</div>
+    </div>
+    <div class="type-btn selected" data-type="B" onclick="toggleType(this,'B')">
+      <div class="type-icon">📖</div><div class="type-label">TYPE B</div>
+      <div class="type-desc">단어 → 뜻<br>영단어 보고 뜻</div>
+    </div>
+    <div class="type-btn selected" data-type="C" onclick="toggleType(this,'C')">
+      <div class="type-icon">🔗</div><div class="type-label">TYPE C</div>
+      <div class="type-desc">단어 → 유의어/반의어<br>영단어 대 영단어</div>
+    </div>
+  </div>
+  <div class="section-title">🔢 문제 수</div>
+  <div class="count-row">
+    <div class="count-btn selected" data-n="10" onclick="selectCount(this)">10</div>
+    <div class="count-btn" data-n="20" onclick="selectCount(this)">20</div>
+    <div class="count-btn" data-n="30" onclick="selectCount(this)">30</div>
+    <div class="count-btn" data-n="50" onclick="selectCount(this)">50</div>
+    <div class="count-btn" data-n="0" onclick="selectCount(this)">전체</div>
+  </div>
+  <button class="start-btn" onclick="startQuiz()">퀴즈 시작</button>
+</div>
+
+<div id="screen-quiz" class="screen">
+  <button class="back-btn" onclick="goHome()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>처음으로
+  </button>
+  <div class="quiz-header">
+    <div class="q-progress-wrap"><div class="q-progress-bar" id="q-progress"></div></div>
+    <div class="q-counter" id="q-counter">1/10</div>
+    <div class="q-score" id="q-score-disp">0점</div>
+  </div>
+  <div class="q-lesson-info" id="q-lesson-info"></div>
+  <div id="q-type-badge"></div>
+  <div class="q-card">
+    <button class="tts-btn" id="tts-btn" onclick="speakWord()" style="display:none">🔊</button>
+    <div class="q-word" id="q-word"></div>
+    <div class="q-hint" id="q-hint"></div>
+  </div>
+  <div class="choices" id="choices"></div>
+  <div id="feedback-area"></div>
+  <button class="next-btn" id="next-btn" style="display:none" onclick="nextQuestion()">다음 →</button>
+</div>
+
+<div id="screen-result" class="screen">
+  <div class="result-hero">
+    <div class="result-score" id="r-score">0</div>
+    <div class="result-total" id="r-total">/ 0점</div>
+    <div class="result-comment" id="r-comment"></div>
+  </div>
+  <div class="result-grid">
+    <div class="result-stat c"><div class="num" id="r-correct">0</div><div class="lbl">정답</div></div>
+    <div class="result-stat w"><div class="num" id="r-wrong">0</div><div class="lbl">오답</div></div>
+    <div class="result-stat p"><div class="num" id="r-pct">0%</div><div class="lbl">정답률</div></div>
+  </div>
+  <div class="action-row">
+    <button class="action-btn retry" onclick="retryQuiz()">다시 풀기</button>
+    <button class="action-btn home" onclick="goHome()">처음으로</button>
+  </div>
+  <div class="wrong-list" id="wrong-list"></div>
+</div>
+
+<script>
+const WORDS=[
+{l:1,w:'adolescent',m:'청소년',s:["teenager", "youth", "juvenile"],a:["adult", "elder", "grown-up"]},
+{l:1,w:'advance',m:'진보하다',s:["progress", "develop", "improve"],a:["retreat", "regress", "decline"]},
+{l:1,w:'affect',m:'영향을 주다',s:["influence", "impact", "alter"],a:["ignore", "neglect"]},
+{l:1,w:'aggressive',m:'공격적인',s:["hostile", "assertive", "combative"],a:["passive", "peaceful", "gentle"]},
+{l:1,w:'attitude',m:'태도',s:["stance", "mindset", "outlook"],a:[]},
+{l:1,w:'behave',m:'행동하다',s:["act", "conduct", "perform"],a:["misbehave", "disobey"]},
+{l:1,w:'behavior',m:'행동',s:["conduct", "action", "manner"],a:[]},
+{l:1,w:'clench',m:'악물다',s:["grip", "grasp", "tighten"],a:["release", "loosen", "relax"]},
+{l:1,w:'combination',m:'결합',s:["mixture", "blend", "union"],a:["separation", "division", "split"]},
+{l:1,w:'compare',m:'비교하다',s:["contrast", "liken", "equate"],a:[]},
+{l:1,w:'conflict',m:'충돌하다',s:["clash", "dispute", "disagreement"],a:["agreement", "harmony", "peace"]},
+{l:1,w:'confuse',m:'혼동하다',s:["perplex", "bewilder", "puzzle"],a:["clarify", "enlighten", "explain"]},
+{l:1,w:'conversation',m:'대화',s:["dialogue", "discussion", "talk"],a:["silence", "monologue"]},
+{l:1,w:'creativity',m:'창의력',s:["imagination", "ingenuity", "originality"],a:["imitation", "conformity"]},
+{l:1,w:'deal',m:'다루다',s:["handle", "manage", "cope with"],a:["avoid", "ignore", "neglect"]},
+{l:1,w:'development',m:'발전',s:["progress", "growth", "advancement"],a:["decline", "regression", "deterioration"]},
+{l:1,w:'disadvantage',m:'불리',s:["drawback", "downside", "weakness"],a:["advantage", "benefit", "merit"]},
+{l:1,w:'discover',m:'발견하다',s:["find", "uncover", "detect"],a:["conceal", "hide", "overlook"]},
+{l:1,w:'emotion',m:'감정',s:["feeling", "sentiment", "mood"],a:[]},
+{l:1,w:'engagement',m:'약속',s:["involvement", "participation", "commitment"],a:["disengagement", "withdrawal", "absence"]},
+{l:1,w:'everyday',m:'매일의',s:["daily", "routine", "ordinary"],a:["occasional", "rare", "extraordinary"]},
+{l:1,w:'explore',m:'탐험하다',s:["investigate", "examine", "probe"],a:["ignore", "overlook", "avoid"]},
+{l:1,w:'express',m:'표현하다',s:["convey", "communicate", "articulate"],a:["suppress", "conceal", "hide"]},
+{l:1,w:'factor',m:'요소',s:["element", "component", "aspect"],a:[]},
+{l:1,w:'feeling',m:'감정',s:["sensation", "emotion", "perception"],a:[]},
+{l:1,w:'finding',m:'발견',s:["discovery", "result", "conclusion"],a:[]},
+{l:1,w:'fist',m:'주먹',s:["clenched hand", "knuckle"],a:[]},
+{l:1,w:'flow',m:'흐르다',s:["stream", "run", "move"],a:["stagnate", "freeze", "stop"]},
+{l:1,w:'flush',m:'물을 내리다',s:["blush", "redden"],a:[]},
+{l:1,w:'happen',m:'(일이) 일어나다',s:["occur", "take place", "arise"],a:[]},
+{l:1,w:'hormone',m:'호르몬',s:["chemical signal", "endocrine"],a:[]},
+{l:1,w:'include',m:'포함하다',s:["contain", "incorporate", "encompass"],a:["exclude", "omit", "leave out"]},
+{l:1,w:'intense',m:'강렬한',s:["powerful", "extreme", "severe"],a:["mild", "moderate", "weak"]},
+{l:1,w:'intensify',m:'증강하다',s:["strengthen", "amplify", "escalate"],a:["weaken", "reduce", "lessen"]},
+{l:1,w:'lead',m:'납',s:["guide", "direct", "conduct"],a:["follow", "trail", "lag"]},
+{l:1,w:'manage',m:'관리하다',s:["handle", "control", "oversee"],a:["mismanage", "neglect", "fail"]},
+{l:1,w:'mention',m:'언급하다',s:["refer to", "cite", "note"],a:["omit", "ignore", "overlook"]},
+{l:1,w:'moment',m:'순간',s:["instant", "second", "flash"],a:["eternity", "long time", "age"]},
+{l:1,w:'mood',m:'기분',s:["feeling", "emotion", "temperament"],a:[]},
+{l:1,w:'organize',m:'조직하다',s:["arrange", "coordinate", "structure"],a:["disorganize", "disorder", "scatter"]},
+{l:1,w:'physical',m:'육체의',s:["bodily", "corporeal", "material"],a:["mental", "psychological", "spiritual"]},
+{l:1,w:'productive',m:'생산적인',s:["efficient", "fruitful", "effective"],a:["unproductive", "wasteful", "ineffective"]},
+{l:1,w:'proper',m:'적절한',s:["appropriate", "suitable", "fitting"],a:["improper", "inappropriate", "unsuitable"]},
+{l:1,w:'rate',m:'비율',s:["proportion", "ratio", "percentage"],a:[]},
+{l:1,w:'react',m:'반응하다',s:["respond", "reply", "answer"],a:["ignore", "be indifferent", "disregard"]},
+{l:1,w:'recognize',m:'알아차리다',s:["identify", "acknowledge", "notice"],a:["ignore", "overlook"]},
+{l:1,w:'resolve',m:'녹이다',s:["settle", "solve", "address"],a:["worsen", "complicate", "ignore"]},
+{l:1,w:'responsible',m:'책임 있는',s:["accountable", "reliable", "dependable"],a:["irresponsible", "unreliable", "careless"]},
+{l:1,w:'roll',m:'구르다',s:["rotate", "spin", "turn"],a:["stop", "halt", "freeze"]},
+{l:1,w:'sensitive',m:'민감한',s:["responsive", "perceptive", "delicate"],a:["insensitive", "callous", "indifferent"]},
+{l:1,w:'sign',m:'기호',s:["signal", "symbol", "indication"],a:[]},
+{l:1,w:'simple',m:'간단한',s:["easy", "straightforward", "basic"],a:["complex", "complicated", "difficult"]},
+{l:1,w:'situation',m:'상황',s:["circumstance", "condition", "context"],a:[]},
+{l:1,w:'skill',m:'기술',s:["ability", "talent", "expertise"],a:["inability", "incompetence", "weakness"]},
+{l:1,w:'social',m:'사회의',s:["communal", "collective", "public"],a:["antisocial", "isolated", "individual"]},
+{l:1,w:'solution',m:'해법',s:["answer", "resolution", "remedy"],a:["problem", "issue", "difficulty"]},
+{l:1,w:'solve',m:'해결하다',s:["resolve", "fix", "address"],a:["create", "worsen", "complicate"]},
+{l:1,w:'step',m:'걸음',s:["stage", "phase", "move"],a:[]},
+{l:1,w:'strategy',m:'전략',s:["plan", "approach", "method"],a:[]},
+{l:1,w:'sudden',m:'갑작스러운',s:["abrupt", "unexpected", "swift"],a:["gradual", "expected", "anticipated"]},
+{l:1,w:'tool',m:'도구',s:["instrument", "device", "implement"],a:[]},
+{l:1,w:'upset',m:'전복시키다',s:["disturbed", "distressed", "troubled"],a:["calm", "pleased", "satisfied"]},
+{l:1,w:'verbal',m:'말로 하는',s:["spoken", "oral", "voiced"],a:["nonverbal", "written", "silent"]},
+{l:1,w:'violent',m:'폭력적인',s:["aggressive", "brutal", "fierce"],a:["peaceful", "gentle", "nonviolent"]},
+{l:2,w:'accept',m:'받아들이다',s:["receive", "acknowledge", "embrace"],a:["reject", "refuse", "deny"]},
+{l:2,w:'achieve',m:'이루다',s:["accomplish", "attain", "fulfill"],a:["fail", "miss", "lose"]},
+{l:2,w:'advantageous',m:'유리한',s:["beneficial", "favorable", "profitable"],a:["disadvantageous", "unfavorable", "harmful"]},
+{l:2,w:'application',m:'신청',s:["request", "submission", "appeal"],a:[]},
+{l:2,w:'approximate',m:'대략의',s:["rough", "estimated", "about"],a:["exact", "precise", "accurate"]},
+{l:2,w:'attract',m:'관심을 끌다',s:["draw", "appeal", "fascinate"],a:["repel", "deter", "drive away"]},
+{l:2,w:'calculation',m:'계산',s:["computation", "estimation", "reckoning"],a:[]},
+{l:2,w:'charity',m:'자비',s:["generosity", "philanthropy", "donation"],a:["selfishness", "greed", "stinginess"]},
+{l:2,w:'chemical',m:'화학의',s:["synthetic", "molecular", "compound"],a:["natural", "organic", "biological"]},
+{l:2,w:'communication',m:'의사소통',s:["dialogue", "exchange", "interaction"],a:["silence", "isolation", "miscommunication"]},
+{l:2,w:'complete',m:'완전한',s:["total", "entire", "whole"],a:["incomplete", "partial", "unfinished"]},
+{l:2,w:'contribution',m:'기부',s:["donation", "gift", "aid"],a:["withdrawal", "taking", "deprivation"]},
+{l:2,w:'direct',m:'지도하다',s:["guide", "lead", "instruct"],a:["mislead", "confuse", "follow"]},
+{l:2,w:'eager',m:'열망하는',s:["enthusiastic", "keen", "passionate"],a:["indifferent", "reluctant", "unenthusiastic"]},
+{l:2,w:'edit',m:'편집하다',s:["revise", "modify", "correct"],a:[]},
+{l:2,w:'excited',m:'흥분한',s:["thrilled", "enthusiastic", "elated"],a:["bored", "calm", "indifferent"]},
+{l:2,w:'expect',m:'기대하다',s:["anticipate", "await", "hope for"],a:["despair", "give up"]},
+{l:2,w:'explain',m:'설명하다',s:["describe", "clarify", "illustrate"],a:["confuse", "complicate", "obscure"]},
+{l:2,w:'express',m:'표현하다',s:["convey", "communicate", "articulate"],a:["suppress", "conceal", "hide"]},
+{l:2,w:'figure',m:'숫자',s:["number", "digit", "statistic"],a:[]},
+{l:2,w:'final',m:'최후의',s:["last", "ultimate", "concluding"],a:["first", "initial", "opening"]},
+{l:2,w:'fulfill',m:'이행하다',s:["accomplish", "achieve", "complete"],a:["fail", "neglect", "abandon"]},
+{l:2,w:'grandparent',m:'조부모',s:[],a:[]},
+{l:2,w:'harvest',m:'추수',s:["crop", "yield", "gather"],a:["plant", "sow", "seed"]},
+{l:2,w:'impression',m:'인상',s:["perception", "image", "effect"],a:[]},
+{l:2,w:'include',m:'포함하다',s:["contain", "incorporate", "encompass"],a:["exclude", "omit", "leave out"]},
+{l:2,w:'individual',m:'개인',s:["person", "single", "unique"],a:["group", "collective", "community"]},
+{l:2,w:'ingredient',m:'성분',s:["component", "element", "substance"],a:[]},
+{l:2,w:'investor',m:'투자자',s:["backer", "financier", "shareholder"],a:[]},
+{l:2,w:'launch',m:'착수하다',s:["begin", "initiate", "start"],a:["end", "conclude", "terminate"]},
+{l:2,w:'local',m:'지역의',s:["regional", "community", "native"],a:["global", "international", "foreign"]},
+{l:2,w:'market',m:'시장',s:["marketplace", "exchange", "trade"],a:[]},
+{l:2,w:'media',m:'매체',s:["press", "broadcasting", "platform"],a:[]},
+{l:2,w:'organic',m:'유기체의',s:["natural", "biological", "ecological"],a:["artificial", "synthetic", "chemical"]},
+{l:2,w:'perfect',m:'완전한',s:["flawless", "ideal", "complete"],a:["imperfect", "flawed", "deficient"]},
+{l:2,w:'plant',m:'식물',s:["vegetation", "flora", "greenery"],a:[]},
+{l:2,w:'post',m:'기둥',s:["publish", "upload", "share"],a:["delete", "remove", "take down"]},
+{l:2,w:'potential',m:'잠재적인',s:["possible", "latent", "promising"],a:["actual", "realized", "definite"]},
+{l:2,w:'production',m:'생산',s:["manufacturing", "creation", "output"],a:["consumption", "destruction", "waste"]},
+{l:2,w:'progress',m:'진보하다',s:["advance", "improve", "develop"],a:["regress", "decline", "deteriorate"]},
+{l:2,w:'project',m:'계획하다',s:["plan", "scheme", "propose"],a:[]},
+{l:2,w:'promote',m:'승진시키다',s:["advertise", "support", "boost"],a:["demote", "suppress", "hinder"]},
+{l:2,w:'promotion',m:'승진',s:["advancement", "boost", "support"],a:["demotion", "suppression", "decline"]},
+{l:2,w:'raise',m:'올리다',s:["lift", "increase", "elevate"],a:["lower", "reduce", "decrease"]},
+{l:2,w:'real',m:'진실의',s:["actual", "genuine", "true"],a:["fake", "false", "imaginary"]},
+{l:2,w:'reality',m:'현실',s:["fact", "truth", "actuality"],a:["fantasy", "fiction", "illusion"]},
+{l:2,w:'receive',m:'받다',s:["obtain", "get", "acquire"],a:["give", "send", "donate"]},
+{l:2,w:'request',m:'요구',s:["demand", "ask", "appeal"],a:["offer", "provide", "give"]},
+{l:2,w:'reward',m:'보상',s:["prize", "benefit", "compensation"],a:["punishment", "penalty", "consequence"]},
+{l:2,w:'search',m:'검색',s:["seek", "look for", "investigate"],a:["ignore", "overlook", "disregard"]},
+{l:2,w:'situation',m:'상황',s:["circumstance", "condition", "context"],a:[]},
+{l:2,w:'social',m:'사회의',s:["communal", "collective", "public"],a:["antisocial", "isolated", "individual"]},
+{l:2,w:'solution',m:'해법',s:["answer", "resolution", "remedy"],a:["problem", "issue", "difficulty"]},
+{l:2,w:'spread',m:'펼치다',s:["expand", "extend", "disseminate"],a:["contain", "limit", "restrict"]},
+{l:2,w:'stare',m:'주시하다',s:["gaze", "look fixedly", "watch"],a:["glance", "look away", "ignore"]},
+{l:2,w:'step',m:'걸음',s:["stage", "phase", "move"],a:[]},
+{l:2,w:'successful',m:'성공한',s:["accomplished", "thriving", "victorious"],a:["unsuccessful", "failed", "defeated"]},
+{l:2,w:'sudden',m:'갑작스러운',s:["abrupt", "unexpected", "swift"],a:["gradual", "expected", "anticipated"]},
+{l:2,w:'support',m:'지지하다',s:["assist", "back", "uphold"],a:["oppose", "undermine", "hinder"]},
+{l:2,w:'thrill',m:'전율',s:["excitement", "sensation", "rush"],a:["boredom", "monotony", "dullness"]},
+{l:2,w:'update',m:'최신으로 만들다',s:["refresh", "revise", "upgrade"],a:["downgrade", "neglect"]},
+{l:2,w:'wanted',m:'공개모집의',s:["sought", "desired", "needed"],a:["unwanted", "rejected", "undesired"]},
+{l:3,w:'absorb',m:'흡수하다',s:["take in", "soak up", "assimilate"],a:["release", "emit", "discharge"]},
+{l:3,w:'carbohydrate',m:'탄수화물',s:["starch", "sugar", "glucose"],a:[]},
+{l:3,w:'casual',m:'우연의',s:["informal", "relaxed", "ordinary"],a:["formal", "serious", "strict"]},
+{l:3,w:'challenge',m:'도전',s:["difficulty", "obstacle", "test"],a:["ease", "simplicity", "comfort"]},
+{l:3,w:'complete',m:'완전한',s:["total", "entire", "whole"],a:["incomplete", "partial", "unfinished"]},
+{l:3,w:'consume',m:'소비하다',s:["use", "eat", "spend"],a:["produce", "save", "conserve"]},
+{l:3,w:'correct',m:'옳은',s:["accurate", "right", "proper"],a:["incorrect", "wrong", "mistaken"]},
+{l:3,w:'depend',m:'...에 의존하다',s:["rely on", "count on", "be dependent"],a:["be independent", "stand alone"]},
+{l:3,w:'discomfort',m:'불편',s:["unease", "inconvenience", "distress"],a:["comfort", "ease", "convenience"]},
+{l:3,w:'equal',m:'같은',s:["identical", "same", "equivalent"],a:["unequal", "different", "uneven"]},
+{l:3,w:'explain',m:'설명하다',s:["describe", "clarify", "illustrate"],a:["confuse", "complicate", "obscure"]},
+{l:3,w:'extreme',m:'극단',s:["excessive", "intense", "drastic"],a:["moderate", "mild", "balanced"]},
+{l:3,w:'factor',m:'요소',s:["element", "component", "aspect"],a:[]},
+{l:3,w:'faint',m:'희미한',s:["dim", "weak", "slight"],a:["bright", "strong", "vivid"]},
+{l:3,w:'fascinating',m:'매료시키는',s:["captivating", "intriguing", "enchanting"],a:["boring", "dull", "uninteresting"]},
+{l:3,w:'feeling',m:'감정',s:["sensation", "emotion", "perception"],a:[]},
+{l:3,w:'fuel',m:'연료',s:["energy source", "power", "propellant"],a:[]},
+{l:3,w:'gender',m:'성',s:["sex", "identity"],a:[]},
+{l:3,w:'glucose',m:'포도당',s:["sugar", "blood sugar"],a:[]},
+{l:3,w:'happen',m:'(일이) 일어나다',s:["occur", "take place", "arise"],a:[]},
+{l:3,w:'health',m:'건강',s:["wellness", "fitness", "well-being"],a:["illness", "sickness", "disease"]},
+{l:3,w:'helpful',m:'도움이 되는',s:["useful", "beneficial", "supportive"],a:["unhelpful", "useless", "harmful"]},
+{l:3,w:'host',m:'주인',s:["organizer", "presenter", "owner"],a:["guest", "visitor", "attendee"]},
+{l:3,w:'intense',m:'강렬한',s:["powerful", "extreme", "severe"],a:["mild", "moderate", "weak"]},
+{l:3,w:'kilogram',m:'킬로그램',s:["kg", "unit of mass"],a:[]},
+{l:3,w:'lack',m:'결핍',s:["shortage", "deficiency", "absence"],a:["abundance", "surplus", "excess"]},
+{l:3,w:'level',m:'수평',s:["degree", "grade", "standard"],a:[]},
+{l:3,w:'lift',m:'들어 올리다',s:["raise", "elevate", "hoist"],a:["lower", "drop", "descend"]},
+{l:3,w:'liver',m:'간',s:["vital organ", "hepatic organ"],a:[]},
+{l:3,w:'loss',m:'손실',s:["decrease", "reduction", "deprivation"],a:["gain", "increase", "profit"]},
+{l:3,w:'matter',m:'문제',s:["issue", "concern", "subject"],a:[]},
+{l:3,w:'meal',m:'식사',s:["food", "dish", "cuisine"],a:[]},
+{l:3,w:'moderate',m:'온전한',s:["reasonable", "mild", "balanced"],a:["extreme", "excessive", "intense"]},
+{l:3,w:'muscle',m:'근육',s:["tissue", "fiber", "sinew"],a:[]},
+{l:3,w:'nausea',m:'메스꺼움',s:["sickness", "queasiness", "dizziness"],a:[]},
+{l:3,w:'nutrient',m:'영양소',s:["nourishment", "vitamin", "mineral"],a:[]},
+{l:3,w:'order',m:'명령',s:["command", "instruction", "directive"],a:["chaos", "disorder", "confusion"]},
+{l:3,w:'outcome',m:'결과',s:["result", "consequence", "effect"],a:["cause", "reason", "input"]},
+{l:3,w:'pause',m:'중지',s:["stop", "halt", "break"],a:["continue", "resume", "proceed"]},
+{l:3,w:'process',m:'과정',s:["procedure", "method", "sequence"],a:[]},
+{l:3,w:'provide',m:'제공하다',s:["supply", "offer", "give"],a:["withhold", "take", "deprive"]},
+{l:3,w:'reason',m:'이유',s:["cause", "explanation", "basis"],a:[]},
+{l:3,w:'recommend',m:'추천하다',s:["suggest", "advise", "propose"],a:["discourage", "warn against", "oppose"]},
+{l:3,w:'replace',m:'대체하다',s:["substitute", "swap", "exchange"],a:["keep", "maintain", "preserve"]},
+{l:3,w:'require',m:'요구하다',s:["demand", "need", "necessitate"],a:["offer", "provide", "give"]},
+{l:3,w:'rice',m:'쌀',s:["grain", "staple food"],a:[]},
+{l:3,w:'rush',m:'돌진하다',s:["hurry", "dash", "race"],a:["slow down", "pause", "wait"]},
+{l:3,w:'sense',m:'감각',s:["feeling", "perception", "awareness"],a:[]},
+{l:3,w:'share',m:'몫',s:["divide", "distribute", "exchange"],a:["keep", "withhold", "hoard"]},
+{l:3,w:'snack',m:'간단한 식사',s:["treat", "nibble", "bite"],a:[]},
+{l:3,w:'stomach',m:'위장',s:["abdomen", "belly", "gut"],a:[]},
+{l:3,w:'stomachache',m:'복통',s:["abdominal pain", "stomach pain"],a:[]},
+{l:3,w:'suffer',m:'고생하다',s:["endure", "undergo", "bear"],a:["enjoy", "flourish", "thrive"]},
+{l:3,w:'supply',m:'공급',s:["provision", "stock", "offer"],a:["demand", "shortage", "deprivation"]},
+{l:3,w:'vary',m:'다양하게 하다',s:["differ", "change", "diversify"],a:["remain constant", "standardize", "fix"]},
+{l:3,w:'viewer',m:'시청자',s:["audience", "spectator", "watcher"],a:[]},
+{l:3,w:'waiting',m:'대기',s:["anticipating", "expecting", "pausing"],a:[]},
+{l:3,w:'weigh',m:'무게를 재다',s:["measure", "assess", "evaluate"],a:[]},
+{l:3,w:'working',m:'일',s:["functioning", "operating", "active"],a:["broken", "idle", "inactive"]},
+{l:4,w:'analyze',m:'분석하다',s:["examine", "study", "investigate"],a:["overlook", "ignore", "synthesize"]},
+{l:4,w:'artificial',m:'인공적인',s:["synthetic", "man-made", "simulated"],a:["natural", "genuine", "real"]},
+{l:4,w:'artist',m:'예술가',s:["creator", "performer", "painter"],a:[]},
+{l:4,w:'assistance',m:'원조',s:["help", "support", "aid"],a:["hindrance", "obstacle", "opposition"]},
+{l:4,w:'benefit',m:'이익',s:["advantage", "gain", "profit"],a:["disadvantage", "harm", "loss"]},
+{l:4,w:'blend',m:'섞다',s:["mix", "combine", "merge"],a:["separate", "divide", "isolate"]},
+{l:4,w:'boost',m:'추진하다',s:["increase", "enhance", "improve"],a:["reduce", "lower", "diminish"]},
+{l:4,w:'boundary',m:'경계선',s:["border", "limit", "edge"],a:[]},
+{l:4,w:'category',m:'범주',s:["class", "group", "type"],a:[]},
+{l:4,w:'collaborate',m:'공동 연구하다',s:["cooperate", "work together", "partner"],a:["compete", "oppose", "work alone"]},
+{l:4,w:'community',m:'공동체',s:["society", "group", "neighborhood"],a:["individual", "isolation"]},
+{l:4,w:'complain',m:'불평하다',s:["grumble", "protest", "object"],a:["praise", "accept", "appreciate"]},
+{l:4,w:'complex',m:'복잡한',s:["complicated", "intricate", "elaborate"],a:["simple", "straightforward", "easy"]},
+{l:4,w:'compose',m:'구성하다',s:["create", "write", "form"],a:["destroy", "dismantle", "break apart"]},
+{l:4,w:'concern',m:'걱정시키다',s:["worry", "anxiety", "issue"],a:["indifference", "unconcern", "calm"]},
+{l:4,w:'consent',m:'동의',s:["agreement", "approval", "permission"],a:["refusal", "objection", "denial"]},
+{l:4,w:'controversy',m:'논쟁',s:["debate", "dispute", "conflict"],a:["agreement", "consensus", "harmony"]},
+{l:4,w:'convenient',m:'편리한',s:["practical", "handy", "accessible"],a:["inconvenient", "impractical", "difficult"]},
+{l:4,w:'creativity',m:'창의력',s:["imagination", "ingenuity", "originality"],a:["imitation", "conformity"]},
+{l:4,w:'creator',m:'창조자',s:["maker", "producer", "originator"],a:["destroyer", "consumer"]},
+{l:4,w:'debate',m:'토론',s:["discussion", "argument", "dispute"],a:["agreement", "silence", "consensus"]},
+{l:4,w:'dependence',m:'의존',s:["reliance", "dependency", "addiction"],a:["independence", "self-sufficiency", "autonomy"]},
+{l:4,w:'description',m:'묘사',s:["account", "depiction", "portrayal"],a:[]},
+{l:4,w:'difference',m:'다름',s:["distinction", "variation", "contrast"],a:["similarity", "sameness", "equality"]},
+{l:4,w:'digital',m:'디지털의',s:["electronic", "online", "virtual"],a:["analog", "physical", "offline"]},
+{l:4,w:'diversity',m:'다양성',s:["variety", "range", "difference"],a:["uniformity", "sameness", "homogeneity"]},
+{l:4,w:'ethic',m:'도덕적인',s:["moral", "virtue", "principle"],a:["immorality", "vice"]},
+{l:4,w:'exceed',m:'넘다',s:["surpass", "go beyond", "outdo"],a:["fall short", "stay within", "be below"]},
+{l:4,w:'excite',m:'흥분시키다',s:["thrill", "stimulate", "energize"],a:["bore", "calm", "dampen"]},
+{l:4,w:'extreme',m:'극단',s:["excessive", "intense", "drastic"],a:["moderate", "mild", "balanced"]},
+{l:4,w:'fair',m:'공정한',s:["just", "unbiased", "impartial"],a:["unfair", "biased", "unjust"]},
+{l:4,w:'figure',m:'숫자',s:["number", "digit", "statistic"],a:[]},
+{l:4,w:'follower',m:'수행원',s:["supporter", "fan", "subscriber"],a:["leader", "pioneer", "influencer"]},
+{l:4,w:'generate',m:'발생시키다',s:["produce", "create", "cause"],a:["destroy", "stop", "eliminate"]},
+{l:4,w:'generator',m:'발전기',s:["producer", "creator", "source"],a:[]},
+{l:4,w:'imagery',m:'마음에 그리는 상',s:["images", "visuals"],a:[]},
+{l:4,w:'imagination',m:'상상력',s:["creativity", "vision", "fantasy"],a:["reality", "fact", "logic"]},
+{l:4,w:'imitate',m:'모방하다',s:["copy", "mimic", "replicate"],a:["create", "originate", "innovate"]},
+{l:4,w:'impact',m:'충격',s:["effect", "influence", "consequence"],a:[]},
+{l:4,w:'include',m:'포함하다',s:["contain", "incorporate", "encompass"],a:["exclude", "omit", "leave out"]},
+{l:4,w:'industry',m:'산업',s:["sector", "trade", "business"],a:[]},
+{l:4,w:'instruction',m:'교훈',s:["direction", "guideline", "guidance"],a:["confusion", "chaos"]},
+{l:4,w:'lead',m:'납',s:["guide", "direct", "conduct"],a:["follow", "trail", "lag"]},
+{l:4,w:'limit',m:'한계',s:["boundary", "restriction", "cap"],a:["freedom", "unlimited", "expansion"]},
+{l:4,w:'major',m:'과반의',s:["significant", "important", "primary"],a:["minor", "insignificant", "secondary"]},
+{l:4,w:'medium',m:'중간',s:["middle", "intermediate", "average"],a:["extreme", "minimal", "maximal"]},
+{l:4,w:'minor',m:'소수의',s:["small", "lesser", "secondary"],a:["major", "significant", "primary"]},
+{l:4,w:'musician',m:'음악가',s:["performer", "player", "composer"],a:[]},
+{l:4,w:'numerous',m:'수많은',s:["many", "countless", "abundant"],a:["few", "scarce", "rare"]},
+{l:4,w:'opportunity',m:'기회',s:["chance", "opening", "possibility"],a:["obstacle", "barrier", "threat"]},
+{l:4,w:'option',m:'선택권',s:["choice", "alternative", "possibility"],a:[]},
+{l:4,w:'output',m:'산출',s:["result", "production", "yield"],a:["input", "consumption"]},
+{l:4,w:'pearl',m:'진주',s:["gem", "jewel"],a:[]},
+{l:4,w:'perform',m:'실행하다',s:["execute", "carry out", "accomplish"],a:["fail", "neglect", "skip"]},
+{l:4,w:'photograph',m:'사진',s:["photo", "image", "picture"],a:[]},
+{l:4,w:'possibility',m:'가능성',s:["chance", "likelihood", "potential"],a:["impossibility", "certainty of failure"]},
+{l:4,w:'potential',m:'잠재적인',s:["possible", "latent", "promising"],a:["actual", "realized", "definite"]},
+{l:4,w:'produce',m:'생산하다',s:["create", "manufacture", "generate"],a:["consume", "destroy", "waste"]},
+{l:4,w:'productivity',m:'생산성',s:["efficiency", "output", "performance"],a:["inefficiency", "waste", "unproductivity"]},
+{l:4,w:'program',m:'프로그램',s:["plan", "schedule", "software"],a:[]},
+{l:4,w:'provide',m:'제공하다',s:["supply", "offer", "give"],a:["withhold", "take", "deprive"]},
+{l:4,w:'public',m:'공공의',s:["communal", "shared", "open"],a:["private", "personal", "restricted"]},
+{l:4,w:'realistic',m:'사실적인',s:["practical", "reasonable", "achievable"],a:["unrealistic", "idealistic", "impractical"]},
+{l:4,w:'release',m:'풀어 주다',s:["publish", "launch", "issue"],a:["withhold", "suppress", "hold back"]},
+{l:4,w:'request',m:'요구',s:["demand", "ask", "appeal"],a:["offer", "provide", "give"]},
+{l:4,w:'rest',m:'휴식',s:["break", "relaxation", "pause"],a:["work", "activity", "exertion"]},
+{l:4,w:'scarf',m:'목도리',s:["wrap", "shawl", "muffler"],a:[]},
+{l:4,w:'simple',m:'간단한',s:["easy", "straightforward", "basic"],a:["complex", "complicated", "difficult"]},
+{l:4,w:'skill',m:'기술',s:["ability", "talent", "expertise"],a:["inability", "incompetence", "weakness"]},
+{l:4,w:'social',m:'사회의',s:["communal", "collective", "public"],a:["antisocial", "isolated", "individual"]},
+{l:4,w:'spark',m:'불꽃',s:["ignite", "trigger", "stimulate"],a:["extinguish", "suppress", "end"]},
+{l:4,w:'style',m:'스타일',s:["manner", "approach", "design"],a:[]},
+{l:4,w:'text',m:'본문',s:["content", "writing", "message"],a:[]},
+{l:4,w:'threat',m:'위협',s:["danger", "risk", "menace"],a:["safety", "security", "protection"]},
+{l:4,w:'tool',m:'도구',s:["instrument", "device", "implement"],a:[]},
+{l:4,w:'view',m:'시야',s:["perspective", "opinion", "sight"],a:[]},
+{l:4,w:'virtual',m:'실질적인',s:["digital", "simulated", "online"],a:["real", "physical", "actual"]}
+];
+let selectedLessons=[1,2,3,4],selectedTypes=['A','B','C'],quizCount=10;
+let quizQueue=[],qIdx=0,score=0,correctCnt=0,wrongCnt=0,wrongWords=[];
+let currentQ=null,answered=false;
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function init(){
+  document.getElementById('total-count').textContent=WORDS.length;
+  const meta=[
+    {n:1,name:"Emotions & Behavior"},
+    {n:2,name:"Society & Growth"},
+    {n:3,name:"Health & Food"},
+    {n:4,name:"Creativity & AI"}
+  ];
+  const grid=document.getElementById('lesson-grid');
+  meta.forEach(lm=>{
+    const cnt=WORDS.filter(w=>w.l===lm.n).length;
+    const btn=document.createElement('div');
+    btn.className='lesson-btn selected';
+    btn.onclick=()=>toggleLesson(btn,lm.n);
+    btn.innerHTML=`<div class="lesson-num">LESSON ${lm.n}</div><div class="lesson-name">${lm.name}</div><div class="lesson-count">${cnt} words</div>`;
+    grid.appendChild(btn);
+  });
+}
+
+function toggleLesson(el,n){
+  if(selectedLessons.includes(n)){
+    if(selectedLessons.length===1)return;
+    selectedLessons=selectedLessons.filter(x=>x!==n);el.classList.remove('selected');
+  }else{selectedLessons.push(n);el.classList.add('selected');}
+}
+function toggleType(el,t){
+  if(selectedTypes.includes(t)){
+    if(selectedTypes.length===1)return;
+    selectedTypes=selectedTypes.filter(x=>x!==t);el.classList.remove('selected');
+  }else{selectedTypes.push(t);el.classList.add('selected');}
+}
+function selectCount(el){
+  document.querySelectorAll('.count-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');quizCount=parseInt(el.dataset.n);
+}
+
+function buildQueue(){
+  const pool=WORDS.filter(w=>selectedLessons.includes(w.l));
+  if(!pool.length)return[];
+  const shuffled=shuffle(pool);
+  const limit=quizCount===0?shuffled.length:Math.min(quizCount,shuffled.length);
+  return shuffled.slice(0,limit).map(w=>{
+    let avail=[...selectedTypes];
+    if(avail.includes('C')&&w.s.length===0&&w.a.length===0)avail=avail.filter(t=>t!=='C');
+    if(!avail.length)avail=['B'];
+    return{word:w,type:avail[Math.floor(Math.random()*avail.length)]};
+  });
+}
+
+function startQuiz(){
+  quizQueue=buildQueue();
+  if(!quizQueue.length)return;
+  qIdx=0;score=0;correctCnt=0;wrongCnt=0;wrongWords=[];
+  showScreen('quiz');renderQuestion();
+}
+
+function setBadge(cls,lbl){
+  document.getElementById('q-type-badge').innerHTML=`<span class="q-type-badge ${cls}">${lbl}</span>`;
+}
+
+function renderChoices(opts,correct,w){
+  const ce=document.getElementById('choices');
+  ce.innerHTML='';
+  shuffle(opts).forEach(c=>{
+    const btn=document.createElement('button');
+    btn.className='choice-btn';btn.textContent=c;
+    btn.onclick=()=>selectAnswer(btn,c,correct,w);
+    ce.appendChild(btn);
+  });
+}
+
+function renderQuestion(){
+  if(qIdx>=quizQueue.length){showResult();return;}
+  answered=false;
+  currentQ=quizQueue[qIdx];
+  const{word:w,type}=currentQ;
+  const pool=WORDS.filter(x=>selectedLessons.includes(x.l));
+
+  document.getElementById('q-progress').style.width=(qIdx/quizQueue.length*100)+'%';
+  document.getElementById('q-counter').textContent=`${qIdx+1}/${quizQueue.length}`;
+  document.getElementById('q-score-disp').textContent=`${score}점`;
+  document.getElementById('q-lesson-info').textContent=`Lesson ${w.l}`;
+  document.getElementById('feedback-area').innerHTML='';
+  document.getElementById('next-btn').style.display='none';
+
+  if(type==='A'){
+    setBadge('badge-A','TYPE A · 뜻→단어');
+    document.getElementById('q-word').textContent=w.m;
+    document.getElementById('q-hint').textContent='';
+    document.getElementById('tts-btn').style.display='none';
+    currentQ.correctAns=w.w; currentQ.ttsWord=null;
+    const others=shuffle(pool.filter(x=>x.w!==w.w)).slice(0,3).map(x=>x.w);
+    renderChoices([w.w,...others],w.w,w);
+
+  }else if(type==='B'){
+    setBadge('badge-B','TYPE B · 단어→뜻');
+    document.getElementById('q-word').textContent=w.w;
+    document.getElementById('q-hint').textContent='';
+    document.getElementById('tts-btn').style.display='block';
+    currentQ.correctAns=w.m; currentQ.ttsWord=w.w;
+    const others=shuffle(pool.filter(x=>x.w!==w.w)).slice(0,3).map(x=>x.m);
+    renderChoices([w.m,...others],w.m,w);
+
+  }else{
+    // TYPE C — 영단어 보고 유의어 or 반의어 영단어 고르기
+    const hasSyn=w.s.length>0,hasAnt=w.a.length>0;
+    let kind;
+    if(hasSyn&&hasAnt)kind=Math.random()<.5?'syn':'ant';
+    else if(hasSyn)kind='syn';
+    else kind='ant';
+    const pool2=kind==='syn'?w.s:w.a;
+    const correct=pool2[Math.floor(Math.random()*pool2.length)];
+    setBadge('badge-C','TYPE C · 유의어/반의어 찾기');
+    document.getElementById('q-word').textContent=w.w;
+    document.getElementById('q-hint').textContent=kind==='syn'?'이 단어의 유의어는?':'이 단어의 반의어는?';
+    document.getElementById('tts-btn').style.display='block';
+    currentQ.correctAns=correct; currentQ.ttsWord=w.w;
+    const allOther=[];
+    pool.forEach(x=>{
+      if(x.w===w.w)return;
+      x.s.forEach(s=>{if(s!==correct)allOther.push(s);});
+      x.a.forEach(a=>{if(a!==correct)allOther.push(a);});
+    });
+    const wrong=shuffle([...new Set(allOther)]).slice(0,3);
+    renderChoices([correct,...wrong],correct,w);
+  }
+}
+
+function speakWord(){
+  if(currentQ?.ttsWord) speakEnglish(currentQ.ttsWord);
+}
+
+function selectAnswer(btn,chosen,correct,w){
+  if(answered)return;answered=true;
+  document.querySelectorAll('.choice-btn').forEach(b=>{
+    b.classList.add('disabled');b.onclick=null;
+    if(b.textContent===correct)b.classList.add('reveal');
+  });
+  const ok=chosen===correct;
+  if(ok){btn.classList.add('correct');btn.classList.remove('reveal');score+=10;correctCnt++;}
+  else{btn.classList.add('wrong');wrongCnt++;wrongWords.push(w);}
+  const syn=w.s.length?w.s.join(', '):'-';
+  const ant=w.a.length?w.a.join(', '):'-';
+  document.getElementById('feedback-area').innerHTML=`
+  <div class="feedback-box ${ok?'correct':'wrong'}">
+    <div class="fb-status ${ok?'ok':'no'}">${ok?'✅ 정답입니다!':'❌ 오답입니다'}</div>
+    <div class="fb-row"><span class="fb-label kr">한글뜻</span><span class="fb-val">${w.m}</span></div>
+    <div class="fb-row"><span class="fb-label en">영단어</span><span class="fb-val">${w.w}</span></div>
+    <div class="fb-row"><span class="fb-label syn">유의어</span><span class="fb-val">${syn}</span></div>
+    <div class="fb-row"><span class="fb-label ant">반의어</span><span class="fb-val">${ant}</span></div>
+  </div>`;
+  document.getElementById('next-btn').style.display='block';
+  document.getElementById('q-score-disp').textContent=`${score}점`;
+}
+
+function nextQuestion(){qIdx++;renderQuestion();}
+
+function showResult(){
+  showScreen('result');
+  const total=quizQueue.length,pct=Math.round(correctCnt/total*100);
+  document.getElementById('r-score').textContent=score;
+  document.getElementById('r-total').textContent=`/ ${total*10}점 만점`;
+  document.getElementById('r-correct').textContent=correctCnt;
+  document.getElementById('r-wrong').textContent=wrongCnt;
+  document.getElementById('r-pct').textContent=pct+'%';
+  const comments=[[90,'🏆 완벽해요! 최고입니다!'],[70,'👍 잘했어요! 조금만 더!'],[50,'📚 절반 이상! 계속 도전하세요!'],[0,'💪 다시 도전해 보세요!']];
+  document.getElementById('r-comment').textContent=comments.find(([t])=>pct>=t)[1];
+  const seen=new Set();
+  const wl=document.getElementById('wrong-list');
+  wl.innerHTML=wrongWords.length
+    ?`<div class="section-title">❌ 틀린 단어 목록</div>`+wrongWords.filter(w=>{if(seen.has(w.w))return false;seen.add(w.w);return true;}).map(w=>`<div class="wrong-item"><div class="wi-word">${w.w}</div><div class="wi-mean">${w.m}</div></div>`).join('')
+    :'';
+}
+
+function retryQuiz(){startQuiz();}
+function goHome(){showScreen('home');}
+function showScreen(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+n).classList.add('active');}
+
+init();
+</script>
+</body>
+</html>
